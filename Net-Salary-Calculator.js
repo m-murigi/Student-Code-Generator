@@ -1,9 +1,9 @@
 //NHIF deductions
 //grossSalary = 65000;
 //nhif = (1300 *
-function tax(basicSalary,benefits){
-    let nhif =0
-    let nssf =0
+function salaryDeductions(basicSalary, benefits){ 
+    let nhif = 0 ;
+    let nssf = 0;
 
 if (grossSalary >=0 && grossSalary <=5999){
     nhifDeduction = 150
@@ -44,57 +44,45 @@ if (grossSalary >=0 && grossSalary <=5999){
     nhifDeduction = 1700
 }
 }
+
 //NSSF deduction calculation
 //basic salary * 6% of the pensionable pay
 //nssf = grossSalary * 6 % 
-//nssf = (65000 * 0.06) =3900
-
-
-
-
-
-
-
-let basicSalary = 400000;
+nssf = (65000 * 0.06) =3900
+ 
 let benefits = 2400
 
 
-
-function tax(taxableIncome){
+{
     let tax = 0;
-    let grossTax = 0;
-    let rated = 0
-    let personalRelief = 2400
+   
+    // let personalRelief = 2400
 
+let taxableIncome = basicSalary + benefits - 2400
+let paye =0
 
-    if (taxableIncome> 0 && taxableIncome< 24000){
-       grossTax =(incomeSalary*0.10);
+    if (taxableIncome > 0 && taxableIncome< 24000){
+
+       grossTax =(incomeSalary * 0.10);
+
     }else if (taxableIncome>= 24001 && taxableIncome<= 32333){
-        rated =(taxableIncome-24000)*0.25
-        grossTax = 2400 +rated
-        taxed = taxableIncome- grossTax;
+        paye =(incomeSalary * 0.25) + 2400
     }else if (taxableIncome >= 32334&& taxableIncome <= 500000){
-        rated = (taxableIncome- 32334)*0.30
-        grossTax =2400+2093.25 +rated
+        paye = (incomeSalary * 0.30) + 2400
+
     }else if (taxableIncome >= 500001 && taxableIncome <=800000){
-        rated = (taxableIncome - 800000) * 0.325;
-        grossTax =2400 +2083.25 +140301  + rated
+        paye =(incomeSalary * 0.325 )+2400
     }else if (taxableIncome >800000){ 
-        rated = (taxableIncome -800000) *0.35
-        grossTax = 2400+2083.25+140300.1 + rated
-
-
+        paye = (incomeSalary * 0.35) +2400
     }
-    paye = (grossTax - personalRelief);
-    netSalary = (taxableIncome - paye)
-    return {paye, netSalary}
+   
 }
-let myTaxableIncome  = benefitsfunction(basicSalary,benefits);
-let taxed = tax(myTaxableIncome.taxableIncome);
+let myTaxableIncome  = netSalary(basicSalary,benefits);
+let netSalary = (basicSalary +benefits -paye -nhif -nssf);
 return {
-    NSSFDeductions:  myTaxableIncome.nssf,
-    NHIFDeductions:  myTaxableIncome.nhif,
-    payee:  taxed.paye,
+    NSSFDeductions:  nssf,
+    NHIFDeductions:  nhif,
+    PAYE:  taxed.paye,
     grosssalary:  basicSalary,
     netsalary:  taxed.netsalary
 }

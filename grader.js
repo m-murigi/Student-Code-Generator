@@ -19,5 +19,4 @@ return finalGrade;
 }
 
 console.log(studentGrade(42));
-
 //document.getElementById("response").innerHTML = `Grade: <;> ${finalGrade}</i>`;

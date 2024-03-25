@@ -1,25 +1,24 @@
-function speedDetector (speedInput){
-    console.log("null")
+
+function speedDetector(speedInput) {
+ 
     const speedLimit = 70;
-    let perPoint= 5;
+    const perPoint = 5;  //every 5km/s above speed limit give one demerit point
+    let response = "";
 
-if (speedInput >= 0 && speedInput<= 70){
-    console.log("Ok");
-
-}else {
-     demeritPoints = Math.floor((speedInput - speedLimit) /perPoint);
-        response = "points" +demeritPoints
-
-    if (demeritPoints >= 12){
-        console.log("license suspended");
-
-        }else {
-        console.log("points "+ demeritPoints);
+    if (speedInput >= 0 && speedInput <= 70) {
+        response = "Ok";
+    } else {
+        const demeritPoints = Math.floor((speedInput - speedLimit) / perPoint);
+        response = "Points: " + demeritPoints;
+        if (demeritPoints >= 12) {
+            response = "License suspended" + demeritPoints;
+        }
     }
-    }
-   
+    
+    return response; 
 }
-speedDetector(80);
+
+console.log(speedDetector(70)); 
 
 
 
@@ -27,10 +26,3 @@ speedDetector(80);
 
 
 
-
-
-
-
-
-
-}
